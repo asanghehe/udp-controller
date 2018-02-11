@@ -35,7 +35,7 @@ int main(int argc, char ** argv){
     }
   }
   
-  close(socket_description);
+  close(socket_descriptor);
   
   return (EXIT_SUCCESS);
 }

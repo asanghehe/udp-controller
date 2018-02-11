@@ -22,8 +22,9 @@ int main(int argc, char** argv){
   socket_descriptor = socket(AF_INET, SOCK_DGRAM, 0);
   
   for(iter = 0; iter<20; iter++){
-    sprintf(buf, "data packet with ID %d\n", iter);
+    sleep(1);
     
+    sprintf(buf, "data packet with ID %d\n", iter);
     sendto(socket_descriptor, buf, sizeof(buf), 0, (struct sockaddr *)&address, sizeof(address));
   }
   

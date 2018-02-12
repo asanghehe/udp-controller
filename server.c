@@ -26,10 +26,8 @@ int main(int argc, char ** argv){
   socket_descriptor = socket(AF_INET, SOCK_DGRAM, 0);
   bind(socket_descriptor, (struct sockaddr *)&sin, sizeof(sin));
   
-  int msg_len = 0;
-  
   //阻塞监听
-  while((msg_len = recvfrom(socket_descriptor, message, sizeof(message), 0, (struct sockaddr *)&sin, &sin_len)) > -1){
+  while(recvfrom(socket_descriptor, message, sizeof(message), 0, (struct sockaddr *)&sin, &sin_len) > -1){
     //recvfrom(socket_descriptor, message, sizeof(message), 0, (struct sockaddr *)&sin, &sin_len);
 
     printf("Response from server: %s\n", message);
@@ -39,7 +37,7 @@ int main(int argc, char ** argv){
     }
     
     //清空多余的字符
-    memset(message, msg_len, sizeof(message));
+    memset(message, 0, sizeof(message));
   }
   
   close(socket_descriptor);

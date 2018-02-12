@@ -38,7 +38,6 @@ int main(int argc, char ** argv){
     
     if(strncmp(message, "high", 4) == 0){
       system("echo 1 > /sys/class/gpio/gpio13/value");
-      break;
     }
     
     if(strncmp(message, "stop", 4) == 0){

@@ -31,6 +31,16 @@ int main(int argc, char ** argv){
     //recvfrom(socket_descriptor, message, sizeof(message), 0, (struct sockaddr *)&sin, &sin_len);
 
     printf("Response from server: %s\n", message);
+    
+    if(strncmp(message, "low", 3) == 0){
+      system("echo 0 > /sys/class/gpio/gpio13");
+    }
+    
+    if(strncmp(message, "high", 4) == 0){
+      system("echo 1 > /sys/class/gpio/gpio13");
+      break;
+    }
+    
     if(strncmp(message, "stop", 4) == 0){
       printf("Sender has told me to end the connection\n");
       break;

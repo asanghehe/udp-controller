@@ -31,15 +31,15 @@ int main(int argc, char ** argv){
   //阻塞监听
   while((msg_len = recvfrom(socket_descriptor, message, sizeof(message), 0, (struct sockaddr *)&sin, &sin_len)) > -1){
     //recvfrom(socket_descriptor, message, sizeof(message), 0, (struct sockaddr *)&sin, &sin_len);
-    
-    //清空多余的字符
-    memset(message, msg_len, sizeof(message));
-    
+
     printf("Response from server: %s\n", message);
     if(strncmp(message, "stop", 4) == 0){
       printf("Sender has told me to end the connection\n");
       break;
     }
+    
+    //清空多余的字符
+    memset(message, msg_len, sizeof(message));
   }
   
   close(socket_descriptor);

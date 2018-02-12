@@ -33,11 +33,11 @@ int main(int argc, char ** argv){
     printf("Response from server: %s\n", message);
     
     if(strncmp(message, "low", 3) == 0){
-      system("echo 0 > /sys/class/gpio/gpio13");
+      system("echo 0 > /sys/class/gpio/gpio13/value");
     }
     
     if(strncmp(message, "high", 4) == 0){
-      system("echo 1 > /sys/class/gpio/gpio13");
+      system("echo 1 > /sys/class/gpio/gpio13/value");
       break;
     }
     

@@ -13,6 +13,11 @@ int main(int argc, char ** argv){
   int sin_len;
   char message[256];
   
+  //检查gpio 13号 是否存在
+  if (-1 == access("/sys/class/gpio/gpio13", 0)) { 
+      system("gpio export 13 out");
+  }
+  
   int socket_descriptor;
   struct sockaddr_in sin;
   printf("Waiting for data from sender \n");

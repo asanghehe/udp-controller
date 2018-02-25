@@ -6,10 +6,26 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <pthread.h>
 
 int port = 6789;
 
 int main(int argc, char ** argv){
+  pthread_t thread;
+  int error = pthread_create(&thread, NULL, listen_command, NULL);
+  if(0 != error){
+    printf("%s\n", strerror(error));
+    exit(-1);
+  }
+  error = pthread_join(thread, NULL);
+  if(0 != error){
+    printf("%s\n", strerror(error));
+    exit(-1);
+  }
+  return 0;
+}
+
+void* listen_command(){
   int sin_len;
   char message[256];
   

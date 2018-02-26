@@ -1,0 +1,7 @@
+linux 启动软件的脚本都在 /etc/init.d 目录中
+
+开机时有 rc0.d, rc1.d rc2.d, rc3.d ... rcS.d, rc.local
+
+带数字的是系统启动模式，rcS.d rc.local 是系统其他软件启动后 执行的启动
+
+rc{number}.d 里面的 S{Number}{Number} 是启动优先级排序， 每个文件是软连接 到init.d 里对应的各个软件启动脚本

@@ -175,7 +175,7 @@ unsigned char MFRC522ToCard(unsigned char command, unsigned char *sendData,
           n = MAX_LEN;
 
         //读取FIFO中接收到的数据
-        for (i=0; i
+        for (i=0; i<sizeof(backData); i++)
           backData[i] = readMFRC522(FIFODataReg);
       }
     }

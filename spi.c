@@ -83,7 +83,7 @@ void calculateCRC(unsigned char *pIndata, unsigned char len, unsigned char *pOut
   //Write_MFRC522(CommandReg, PCD_IDLE);
 
   //向FIFO中写入数据
-  for (i=0; i
+  for (i=0; i<sizeof(pIndata); i++)
     writeMFRC522(FIFODataReg, *(pIndata+i));
   writeMFRC522(CommandReg, PCD_CALCCRC);
 

@@ -134,7 +134,7 @@ unsigned char MFRC522ToCard(unsigned char command, unsigned char *sendData,
   writeMFRC522(CommandReg, PCD_IDLE);   //无动作，取消当前命令
 
   //向FIFO中写入数据
-  for (i=0; i
+  for (i=0; i<sizeof(sendData); i++)
     writeMFRC522(FIFODataReg, sendData[i]);
 
   //执行命令

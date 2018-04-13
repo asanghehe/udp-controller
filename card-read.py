@@ -16,7 +16,7 @@ if not error:
       if not rdr.card_auth(rdr.auth_a, 10, [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF], uid):
         # This will print something like (False, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         for sblock in range(0,15):
-          print("reading "+str(num)+" block data: \t "+str(rdr.read(sblock)))
+          print("reading "+str(sblock)+" block data: \t "+str(rdr.read(sblock)))
           time.sleep(0.1)
         # Always stop crypto1 when done working
         rdr.stop_crypto()

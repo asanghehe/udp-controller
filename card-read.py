@@ -1,3 +1,5 @@
+import os
+
 from pirc522 import RFID
 rdr = RFID()
 

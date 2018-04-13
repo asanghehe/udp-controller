@@ -1,4 +1,4 @@
-import os
+import time
 
 from pirc522 import RFID
 rdr = RFID()
@@ -17,6 +17,7 @@ if not error:
         # This will print something like (False, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         for num in range(0,63):
           print("reading "+str(num)+" block data: \t "+str(rdr.read(num)))
+          time.sleep(0.1)
         # Always stop crypto1 when done working
         rdr.stop_crypto()
 
